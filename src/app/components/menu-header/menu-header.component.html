@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center ion-padding-vertical">
+      <img src="../../../assets/images/logo_usina.png" class="img-logo">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-list style="height: 100vh;" class="ion-padding list-menu">
+  @for (item of listMenu; track $index) {
+  <ion-item class="ion-align-items-center" [routerLink]="item.url">
+    <ion-icon [name]="item.icon" color="light" class="ion-margin-end"></ion-icon>
+    <ion-label class="ion-no-margin">
+      {{ item.name }}
+    </ion-label>
+  </ion-item>
+  }
+  <ion-item class="ion-align-items-center">
+    <ion-label class="ion-no-margin">
+      Sair
+    </ion-label>
+  </ion-item>
+</ion-list>

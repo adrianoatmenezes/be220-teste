@@ -1,0 +1,8 @@
+<ion-content>
+  <app-user-info />
+  @if (contents) {
+  @for (content of contents; track $index) {
+  <app-contents-main [contentInput]="content" />
+  }
+  }
+</ion-content>

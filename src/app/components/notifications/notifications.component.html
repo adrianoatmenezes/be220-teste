@@ -1,0 +1,28 @@
+<ion-header class="ion-text-center ion-padding">
+  <ion-text>
+    Notificações
+  </ion-text>
+</ion-header>
+@if (notifications.length) {
+<div class="notifications-list">
+  <ion-list style="height: 100vh;" class="ion-padding">
+    @for (item of notifications; track $index) {
+    <ion-item class="ion-align-items-center ion-justify-content-between">
+      <ion-label class="ion-no-margin">
+        {{ item.name }}
+      </ion-label>
+
+      <ion-text>
+        Notificado em: {{ item.dateCreated | date:"dd/MM/yyyy" }}
+      </ion-text>
+    </ion-item>
+    }
+  </ion-list>
+</div>
+} @else {
+<div class="ion-text-center mt">
+  <ion-text>
+    Nenhuma notificação encontrada
+  </ion-text>
+</div>
+}

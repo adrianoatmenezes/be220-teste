@@ -1,0 +1,18 @@
+.list-menu {
+  * {
+    transition: .6s ease all;
+  }
+
+
+  ion-item {
+    transition: .6s ease all;
+  }
+
+  ion-item:active {
+    --background: #f78007d9;
+  }
+
+  ion-label {
+    font-weight: 700;
+  }
+}

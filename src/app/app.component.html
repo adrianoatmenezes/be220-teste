@@ -1,0 +1,18 @@
+<ion-app>
+  <ion-header collapse="fade" class="ion-no-border">
+    <app-header></app-header>
+  </ion-header>
+  <ion-content>
+    <ion-router-outlet fullscreen="true"></ion-router-outlet>
+  </ion-content>
+
+  <ion-menu menu="menu-header" contentId="main-header" type="overlay" fullscreen="true">
+    <app-menu-header />
+  </ion-menu>
+
+  <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+    <ng-template>
+      <app-notifications />
+    </ng-template>
+  </ion-modal>
+</ion-app>

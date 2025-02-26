@@ -1,0 +1,93 @@
+@if(!loading) {
+<section class="content ion-padding-start ion-padding-bottom mt">
+  <ion-header class="ion-no-border">
+    <h1 class="ion-no-padding ion-no-margin d-flex ion-align-items-start">
+      {{ content.title }}
+      @if(!content.isPersonal && content.title == "Programas") {
+      <ion-badge slot="end" shape="round" color="primary" class="badge-new">NOVO</ion-badge>
+      }
+      @if(content.title == "Personal Online") {
+      <ion-badge slot="end" shape="round" color="transparent" class="badge-add">
+        <ion-icon name="add-outline" color="primary"></ion-icon>
+      </ion-badge>
+      }
+    </h1>
+  </ion-header>
+
+  <swiper-container slides-per-view="auto" mousewheel-force-to-axis="true" space-between="20" class="container-swiper">
+    @if(content.isPersonal) {
+    <swiper-slide class="content-slide">
+      <div class="card-container">
+        <ion-card class="shadow card-content ion-no-margin new-training" [ngStyle]="{'background-image': 'url(' + imgUrls[3] + ')'}">
+          <div class="d-flex ion-align-items-center ion-justify-content-center training">
+            <ion-button class="btn-training">
+              <ion-icon name="add-outline" color="light"></ion-icon>
+              <ion-text class="ion-text-left" color="light">
+                Novo <br>
+                Treino
+              </ion-text>
+            </ion-button>
+          </div>
+        </ion-card>
+      </div>
+    </swiper-slide>
+    }
+    @for (item of content.contentConfig; track $index) {
+    <swiper-slide class="content-slide">
+      <div class="card-container" routerLink="/content/{{item.title}}">
+        <ion-card class="shadow card-content ion-no-margin" [ngStyle]="{'background-image': 'url(' + imgUrls[item.id] + ')'}">
+          <div class="info-card d-flex ion-padding"
+            [ngClass]="item.img && !item.icon ? 'ion-justify-content-end' : 'ion-justify-content-center'">
+            @if (!item.img && item.icon) {
+            <ion-card class="ion-no-margin dieta-content mt d-flex ion-align-items-center ion-justify-content-center"
+              color="primary">
+              <ion-icon [name]="item.icon" color="light"></ion-icon>
+            </ion-card>
+            }
+            @if (item.started) {
+            <ion-text color="primary" class="started">
+              continuar treinando
+            </ion-text>
+            }
+            <ion-text color="light" [ngClass]="!item.img && item.icon ? 'mt' : ''">
+              <h2 class="ion-no-margin title-card">{{item.title}}</h2>
+            </ion-text>
+          </div>
+        </ion-card>
+      </div>
+    </swiper-slide>
+    }
+  </swiper-container>
+</section>
+}
+@else {
+<section class="content ion-padding-start ion-padding-bottom mt">
+  <ion-header class="ion-no-border ion-padding">
+    <ion-skeleton-text [animated]="true" style="width: 50%; height: 100%;"></ion-skeleton-text>
+  </ion-header>
+
+  <swiper-container slides-per-view="auto" mousewheel-force-to-axis="true" class="container-swiper">
+    <swiper-slide class="content-slide">
+      <div class="card-container">
+        <ion-card class="shadow card-content">
+          <ion-skeleton-text [animated]="true" style="width: 100%; height: 100%;"></ion-skeleton-text>
+        </ion-card>
+      </div>
+    </swiper-slide>
+    <swiper-slide class="content-slide">
+      <div class="card-container">
+        <ion-card class="shadow card-content">
+          <ion-skeleton-text [animated]="true" style="width: 100%; height: 100%;"></ion-skeleton-text>
+        </ion-card>
+      </div>
+    </swiper-slide>
+    <swiper-slide class="content-slide">
+      <div class="card-container">
+        <ion-card class="shadow card-content">
+          <ion-skeleton-text [animated]="true" style="width: 100%; height: 100%;"></ion-skeleton-text>
+        </ion-card>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+</section>
+}

@@ -1,0 +1,15 @@
+.button-notification {
+  font-size: 6px;
+  border-radius: 9999999999px !important;
+
+  .badge-notification {
+    right: -3px;
+    top: -7px;
+    width: 5px;
+    height: 10px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
